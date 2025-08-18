@@ -3,19 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Data Analytics Portfolio | Interactive Power BI + Case Study</title>
-  <meta name="description" content="An interactive data analytics portfolio featuring secure-embedded Power BI and a concise case-study write‑up: background, approach, data cleaning, key findings, and takeaways." />
-  <meta property="og:title" content="Data Analytics Portfolio" />
-  <meta property="og:description" content="Interactive Power BI (requires sign‑in) + concise case‑study." />
+  <title>Maven Market Data Analytics | Interactive Power BI + Case Study</title>
+  <meta name="description" content="Maven Market data analytics portfolio with a secure‑embedded Power BI report (sign‑in required) and a concise case study: background, metrics, approach, data cleaning, findings, and recommendations." />
+  <meta property="og:title" content="Maven Market Data Analytics" />
+  <meta property="og:description" content="Interactive Power BI (requires sign‑in) + concise case study." />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary" />
   <style>
-    :root{
-      --bg: #0b0c10; --panel: #121318; --text: #e6e6e6; --muted: #b7b7b7; --accent: #6ee7b7; --accent2: #60a5fa; --border: #1f2330;
-      --radius: 16px; --shadow: 0 10px 30px rgba(0,0,0,.35); --maxw: 1050px;
-      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-    }
+    :root{ --bg:#0b0c10; --panel:#121318; --text:#e6e6e6; --muted:#b7b7b7; --accent:#6ee7b7; --accent2:#60a5fa; --border:#1f2330; --radius:16px; --shadow:0 10px 30px rgba(0,0,0,.35); --maxw:1050px; --mono:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; --sans:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
     @media (prefers-color-scheme: light){ :root{ --bg:#f7f7fa; --panel:#ffffff; --text:#1f2937; --muted:#6b7280; --border:#e5e7eb; --shadow:0 10px 30px rgba(0,0,0,.08);} }
     *{ box-sizing:border-box; }
     html,body{ margin:0; padding:0; background:var(--bg); color:var(--text); font-family:var(--sans); line-height:1.65; }
@@ -36,9 +31,20 @@
     .btn{ display:inline-flex; align-items:center; gap:6px; padding:8px 12px; background:var(--panel); border:1px solid var(--border); border-radius:12px; color:var(--text); text-decoration:none; font-size:.95rem; box-shadow:var(--shadow); }
     .btn:hover{ transform:translateY(-1px); }
     .grid{ display:grid; grid-template-columns:1fr 1fr; gap:20px; }
-    @media (max-width: 880px){ .hero{ grid-template-columns:1fr } .grid{ grid-template-columns:1fr } }
+    @media (max-width:880px){ .hero{ grid-template-columns:1fr } .grid{ grid-template-columns:1fr } }
     .gallery{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
     .gallery img{ width:100%; height:100%; object-fit:cover; border-radius:12px; border:1px solid var(--border); box-shadow:var(--shadow); }
+    .note{ padding:12px 14px; border:1px dashed var(--border); border-radius:12px; color:var(--muted); background:color-mix(in oklab, var(--panel) 94%, black); }
+    /* --- Table styling for analysis --- */
+    .table{ width:100%; border-collapse:separate; border-spacing:0; overflow:hidden; border:1px solid var(--border); border-radius:12px; }
+    .table th, .table td{ padding:10px 12px; border-bottom:1px solid var(--border); }
+    .table thead th{ text-align:left; background:color-mix(in oklab, var(--panel) 92%, black); font-weight:600; }
+    .table tr:last-child td{ border-bottom:none; }
+    .badge{ display:inline-block; padding:2px 8px; border-radius:999px; border:1px solid var(--border); font-size:.85rem; }
+    .up{ background:rgba(34,197,94,.15); } .down{ background:rgba(239,68,68,.15); } .flat{ background:rgba(107,114,128,.15); }
+    .delta{ font-variant-numeric:tabular-nums; opacity:.9; }
+    figure{ margin:0; }
+    figcaption{ color:var(--muted); font-size:.9rem; margin-top:6px; }
     footer{ max-width:var(--maxw); margin:0 auto; padding:20px 16px 40px; color:var(--muted); border-top:1px dashed var(--border); }
   </style>
 </head>
@@ -46,7 +52,7 @@
   <a id="top"></a>
   <header>
     <div class="nav">
-      <div class="brand">Your Name<span class="dot">·</span>Data Portfolio</div>
+      <div class="brand">Krystal Wang<span class="dot">·</span>Data Portfolio</div>
       <nav>
         <a class="btn" href="#dashboard">View Interactive Report</a>
       </nav>
@@ -55,22 +61,20 @@
 
   <div class="hero">
     <div class="head">
-      <h1>Data Analytics Portfolio (Power BI)</h1>
-      <h3>Business Insights · Secure-Embedded Dashboard · End-to-End Workflow</h3>
-      <p style="color:var(--muted)">This page includes: project background, approach, data cleaning & methods, key findings, takeaways — plus a <strong>secure-embedded Power BI</strong> report (sign‑in required) and static screenshots.</p>
+      <h1>Maven Market — Interactive Performance Report (Power BI)</h1>
+      <h3>Business Insights · Secure‑Embedded Dashboard · End‑to‑End Workflow</h3>
+      <p style="color:var(--muted)">This page includes the project background, <strong>metrics & definitions</strong>, approach, data cleaning & methods, the <strong>insight framework</strong>, and key findings — plus a <strong>secure‑embedded Power BI</strong> report (sign‑in required) and static screenshots.</p>
       <div class="kpis">
         <span class="chip">Power BI</span>
         <span class="chip">DAX</span>
         <span class="chip">Data Modeling</span>
-        <span class="chip">Finance/Retail Analytics</span>
+        <span class="chip">Retail Finance</span>
       </div>
     </div>
     <div class="card">
       <h2 id="dashboard">Interactive Report (Sign‑in Required)</h2>
       <p class="muted" style="color:var(--muted)">Viewers must sign in with a Microsoft work/school account that has permissions to this report. If your tenant blocks external embedding, use the screenshots below.</p>
       <div class="embed-wrap">
-        <!-- Secure Embed: Power BI Service → File → Embed report → Website or portal. Paste the iframe below. -->
-        <!-- Example: <iframe title="Report" src="https://app.powerbi.com/reportEmbed?reportId=...&autoAuth=true&ctid=...&config=..." allowfullscreen></iframe> -->
         <iframe title="Power BI Report" src="https://app.powerbi.com/reportEmbed?reportId=e4f9f6cd-6cb6-458f-8d19-b08c4fe84f89&autoAuth=true&ctid=60409c15-dd37-4640-975b-9eaa707437b7" allowfullscreen></iframe>
       </div>
       <div class="embed-actions">
@@ -85,81 +89,203 @@
       <h2>Selected Screens (Static)</h2>
       <p style="color:var(--muted)">These images mirror the live dashboard for quick review and for viewers without access.</p>
       <div class="gallery">
-        <!-- Replace with your own images placed in /assets -->
-        <img src="assets/overview.png" alt="Topline performance overview: revenue vs target, margins, YoY/ MoM" />
-        <img src="assets/deepdive.png" alt="Division/Category drilldowns and store/region contribution" />
+        <img src="assets/overview.png" alt="Maven Market topline: revenue vs 5% target lift, profit/margin, YoY & MoM deltas" />
+        <img src="assets/deepdive.png" alt="Division/category and store/region drilldowns; returns and net sales context" />
       </div>
     </section>
 
-    <section id="background" class="card">
-      <h2>Project Background</h2>
+    <section id="metrics" class="card">
+      <h2>Metrics & Definitions</h2>
+      <h3>1) Revenue</h3>
       <ul>
-        <li><strong>Business context:</strong> (e.g.) Multi‑store retail performance tracking (1997–1998), focusing on targets vs actuals and cost structure.</li>
-        <li><strong>Data source:</strong> Transactions, returns, products, stores/regions, customers, and a date table.</li>
-        <li><strong>Audience:</strong> Business leaders · FP&A · Operations.</li>
-        <li><strong>Core questions:</strong> Revenue vs target, gross margin %, operating expenses, contribution by division/category/store, returns & net sales.</li>
+        <li><strong>Revenue:</strong> <em>Total Revenue</em> (Power BI measure).</li>
+        <li><strong>Returns:</strong> <em>Return Amount</em> (Power BI measure).</li>
+        <li><strong>Net Sales:</strong> Power BI <em>Net Sales</em> measure.</li>
+      </ul>
+      <h3>2) Cost</h3>
+      <ul>
+        <li><strong>COGS:</strong> <em>Total Cost</em> (Power BI measure).</li>
+        <li><strong>Gross Profit</strong> & <strong>Gross Margin %</strong> (Power BI measures).</li>
+      </ul>
+      <div class="note">⚠️ <strong>Important:</strong> Gross Profit is computed from the sales side only; <em>return cost is not deducted</em> because the <code>Return_Data</code> table lacks a reliable return‑cost field. This avoids fabricating losses and keeps margin truthful.</div>
+      <h3>3) Operating Expenses (OpEx)</h3>
+      <ul>
+        <li>Current dataset has no explicit Admin/MoH/Marketing breakdown. Leave blank or supplement with a hypothetical budget/expense table if needed.</li>
+      </ul>
+      <h3>4) Profit</h3>
+      <ul>
+        <li><strong>EBIT (Operating Profit):</strong> currently approximated as <em>EBIT = Gross Profit</em>.</li>
+        <li>Future expansion: <em>EBIT = Gross Profit − OpEx</em> once Admin/MoH/Marketing tables are added.</li>
+      </ul>
+    </section>
+
+    <section id="insight-framework" class="card">
+      <h2>Insight Framework & Storyline</h2>
+      <ol>
+        <li><strong>Topline Performance</strong>
+          <ul>
+            <li>Revenue vs Target (Gauge/Line)</li>
+            <li>Net Sales vs Budget</li>
+            <li>Returns % of Revenue</li>
+          </ul>
+        </li>
+        <li><strong>Cost & Margin</strong>
+          <ul>
+            <li>COGS vs Budget</li>
+            <li>Gross Profit & Gross Margin %</li>
+          </ul>
+        </li>
+        <li><strong>Expenses & EBIT</strong> (future OpEx data)
+          <ul>
+            <li>Expense category comparison</li>
+            <li>EBIT vs Budget</li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+
+    <section id="analytics-table" class="card">
+      <h2>Analytical Summary Table</h2>
+      <p style="color:var(--muted)">Latest month: <strong>Dec‑1998</strong>. <em>vs Budget</em> uses <strong>Prior Month actual</strong> (Nov‑1998). <span style="white-space:nowrap">Alt target:</span> PM×1.05 → Revenue <strong>+0.57%</strong>, Net Sales <strong>+0.64%</strong>.</p>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>Value</th>
+            <th>vs Budget</th>
+            <th>vs Prior Year</th>
+            <th>Note</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Total Revenue</td>
+            <td>$120.16k</td>
+            <td><span class="badge up">▲ <span class="delta">+5.60%</span></span></td>
+            <td><span class="badge up">▲ <span class="delta">+110.94%</span></span></td>
+            <td>Momentum led by top brands (Hermanos/Tell Tale)</td>
+          </tr>
+          <tr>
+            <td>Net Sales</td>
+            <td>$118.98k</td>
+            <td><span class="badge up">▲ <span class="delta">+5.67%</span></span></td>
+            <td><span class="badge up">▲ <span class="delta">+110.83%</span></span></td>
+            <td>Returns ratio stable / improving</td>
+          </tr>
+          <tr>
+            <td>Returns % of Revenue</td>
+            <td>0.99%</td>
+            <td><span class="badge up">• <span class="delta">−0.07 pp</span></span></td>
+            <td><span class="badge down">▼ <span class="delta">+0.05 pp</span></span></td>
+            <td>Watch high‑return SKUs</td>
+          </tr>
+          <tr>
+            <td>COGS</td>
+            <td>$48.48k</td>
+            <td><span class="badge down">▼ <span class="delta">+5.58%</span></span></td>
+            <td><span class="badge down">▼ <span class="delta">+111.08%</span></span></td>
+            <td>Mix & discount effects</td>
+          </tr>
+          <tr>
+            <td>Gross Margin %</td>
+            <td>59.66%</td>
+            <td><span class="badge flat">• <span class="delta">+0.01 pp</span></span></td>
+            <td><span class="badge flat">• <span class="delta">−0.03 pp</span></span></td>
+            <td>Stable overall; pressure in discount‑heavy SKUs</td>
+          </tr>
+          <tr>
+            <td>EBIT</td>
+            <td>$71.68k</td>
+            <td><span class="badge up">▲ <span class="delta">+5.61%</span></span></td>
+            <td><span class="badge up">▲ <span class="delta">+110.84%</span></span></td>
+            <td>Currently = Gross Profit (no OpEx yet)</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="visual-evidence" class="card">
+      <h2>Visual Evidence</h2>
+      <div class="grid">
+        <figure>
+          <img src="assets/kpi_table.png" alt="KPI table: revenue, net sales, returns %, COGS, GM%, EBIT with budget & prior year deltas" />
+          <figcaption>Exported KPI table from Power BI (Matrix or Table visual).</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/segment_split.png" alt="Contribution waterfall by division/category or store/region highlighting top contributors" />
+          <figcaption>Contribution breakdown (division/category/store/region).</figcaption>
+        </figure>
+      </div>
+      <p style="color:var(--muted);margin-top:10px">Place exported images in <code>/assets/</code> and update filenames above. Keep sensitive data off screenshots if sharing publicly.</p>
+    </section>
+
+    <section id="key-findings" class="card">
+      <h2>Key Findings (paired with the report)</h2>
+      <ul>
+        <li><strong>Revenue vs Budget:</strong> Outperformed budget and prior year; momentum led by top brands (Hermanos/Tell Tale).</li>
+        <li><strong>Margins & Costs:</strong> COGS up YoY yet margin steady (~59.7%); focus on discount‑heavy SKUs.</li>
+        <li><strong>OpEx readiness:</strong> When Admin/MoH/Marketing data becomes available, run 5–10% OpEx scenarios to protect EBIT.</li>
+        <li><strong>Regional/Store dispersion:</strong> Top stores contribute a disproportionate share of net sales; prioritize high‑ROI locations.</li>
+      </ul>
+    </section>
+
+    <section id="takeaways" class="card">
+      <h2>Takeaways / Recommendations</h2>
+      <ul>
+        <li>Run cost‑cut scenarios (5–10%) prioritizing Admin/MoH when OpEx data is added; monitor EBIT recovery path.</li>
+        <li>Double down on high‑margin categories and top‑performing regions/stores; trim low‑ROI marketing.</li>
+        <li>Build a returns quality dashboard to target high‑return SKUs and training opportunities.</li>
       </ul>
     </section>
 
     <section id="approach" class="card">
       <h2>Approach</h2>
       <ul>
-        <li>KPIs defined: <em>Total Revenue, Net Sales, Gross Margin %, EBIT%</em>, rolling revenue, returns ratio.</li>
-        <li>Star schema: Calendar/Products/Stores/Regions/Customers dimensions related to Transaction/Return facts.</li>
-        <li>DAX metrics: rolling windows (<code>DATESINPERIOD</code>), period‑over‑period (<code>DATEADD</code>), target vs actual (e.g., <em>Revenue Target = prior month × 1.05</em>).</li>
-        <li>Visual flow: topline overview → drilldowns to division/category/store → regional and SKU contribution.</li>
+        <li><strong>KPIs:</strong> <em>Total Revenue</em>, <em>Net Sales</em>, <em>Gross Margin %</em>, <em>EBIT %</em>, <em>Returns Ratio</em>, <em>Rolling 60‑day Revenue</em>.</li>
+        <li><strong>Modeling:</strong> Star schema with Calendar/Products/Stores/Regions/Customers dimensions related to Transaction and Return facts.</li>
+        <li><strong>Targets:</strong> <em>Revenue Target = Prior Month Revenue × 1.05</em> for gauge comparison and monthly pacing.</li>
+        <li><strong>Time intelligence:</strong> <code>DATESINPERIOD</code>, <code>DATEADD</code> for rolling windows and PoP analytics.</li>
+        <li><strong>UX:</strong> Topline overview → drilldowns (division/category/store) → region lens → returns overlay and net‑sales quality.</li>
       </ul>
     </section>
 
     <section id="methods" class="card">
       <h2>Data Cleaning & Methods</h2>
       <ul>
-        <li>Data quality Checks: null order IDs, negative invoice values split as Sales Credit, zero cost/qty sanity checks.</li>
-        <li>Indirect costs: consistent allocation (Admin/MoH/Distribution) for cross‑department comparison.</li>
-        <li>Time intelligence: rolling 60‑day revenue, last‑month comparisons, YoY/MoM deltas.</li>
-        <li>Targeting: gauge vs target to monitor trajectory and alert on underperformance.</li>
+        <li><strong>Data quality checks:</strong> null order numbers; negative invoice values handled as credits; zero cost/quantity sanity checks.</li>
+        <li><strong>Join logic:</strong> Calendar drives filters; Returns modeled separately (no FK to transactions). Reconciled via measures such as <em>All Returns</em>/<em>All Transactions</em>.</li>
+        <li><strong>Measures:</strong> rolling revenue (60‑day), last‑month revenue/returns/transactions, weekend share, profit margin, net sales.</li>
+        <li><strong>Formatting:</strong> M/d/yyyy date format; currency formatting for financial KPIs.</li>
       </ul>
     </section>
 
-    <section id="findings" class="card">
-      <h2>Key Findings (paired with the report)</h2>
-      <ul>
-        <li><strong>Revenue vs Budget:</strong> Outperformed budget and prior year; momentum led by Healthcare and Distributor channels.</li>
-        <li><strong>Margins & Costs:</strong> COGS up YoY yet margin steady (~64%); focus on discount‑heavy SKUs.</li>
-        <li><strong>OpEx pressure:</strong> Admin/MoH overruns drive weaker EBIT; scenario‑plan 5–10% OpEx reductions.</li>
-        <li><strong>Regional/Store dispersion:</strong> NE shows the largest improvement; top stores drive disproportionate net sales.</li>
-      </ul>
-    </section>
-
-    <section id="learnings" class="card">
-      <h2>Takeaways / Recommendations</h2>
-      <ul>
-        <li>Run cost‑cut scenarios (5–10%) prioritizing Admin/MoH; monitor EBIT recovery path.</li>
-        <li>Double down on high‑margin categories and top‑performing regions/stores; trim low‑ROI marketing.</li>
-        <li>Build a returns quality dashboard to target high‑return SKUs and training opportunities.</li>
-      </ul>
+    <section id="data-source" class="card">
+      <h2>Data Source & Reference</h2>
+      <p>
+        Dataset: <strong>Maven Market</strong> — sourced from Kaggle. Portfolio/educational use.
+        <a href="https://www.kaggle.com/datasets/ukveteran/maven-market-datasets" target="_blank" rel="noopener">View dataset on Kaggle ↗</a>
+      </p>
     </section>
 
     <section class="grid">
       <div class="card">
         <h2>Project Files</h2>
         <ul>
-          <li><a href="#" title="Optional: add the .pbix file">Download Power BI (.pbix)</a></li>
-          <li><a href="#" title="Optional: add a PDF/PPT">Download slides</a></li>
-          <li><a href="#" title="Optional: add a sanitized sample dataset">Sample dataset (sanitized)</a></li>
+          <li><a href="files/MavenMarket_Report.pbix" title="Power BI report download">Download Power BI (.pbix)</a></li>
+          <li><a href="files/MavenMarket_Dataset.zip" title="Sanitized dataset download">Download dataset (sanitized)</a></li>
         </ul>
       </div>
       <div class="card">
         <h2>About</h2>
-        <p>One‑liner: Data/Financial analyst with hands‑on Power BI, DAX, SQL, and business storytelling.</p>
-        <p>Contact: <a href="mailto:your@email">your@email</a></p>
-        <p>GitHub: <a href="https://github.com/yourname">@yourname</a></p>
+        <p>Data/Financial analyst focusing on Power BI, DAX, SQL, and business storytelling.</p>
+        <p>Contact: <a href="mailto:wst.krystal@outlook.com">wst.krystal@outlook.com</a></p>
+        <p>GitHub: <a href="https://github.com/KrystalWang222">@KrystalWang222</a></p>
       </div>
     </section>
   </main>
 
   <footer>
-    <p>© <span id="year"></span> Your Name · Data Analytics Portfolio · <a href="#top">Back to top</a></p>
+    <p>© <span id="year"></span> Krystal Wang · Data Analytics Portfolio · <a href="#top">Back to top</a></p>
   </footer>
 
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
@@ -170,19 +296,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Data Analytics Portfolio | Interactive Power BI + Case Study</title>
-  <meta name="description" content="An interactive data analytics portfolio featuring secure-embedded Power BI and a concise case-study write‑up: background, approach, data cleaning, key findings, and takeaways." />
-  <meta property="og:title" content="Data Analytics Portfolio" />
-  <meta property="og:description" content="Interactive Power BI (requires sign‑in) + concise case‑study." />
+  <title>Maven Market Data Analytics | Interactive Power BI + Case Study</title>
+  <meta name="description" content="Maven Market data analytics portfolio with a secure‑embedded Power BI report (sign‑in required) and a concise case study: background, metrics, approach, data cleaning, findings, and recommendations." />
+  <meta property="og:title" content="Maven Market Data Analytics" />
+  <meta property="og:description" content="Interactive Power BI (requires sign‑in) + concise case study." />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary" />
   <style>
-    :root{
-      --bg: #0b0c10; --panel: #121318; --text: #e6e6e6; --muted: #b7b7b7; --accent: #6ee7b7; --accent2: #60a5fa; --border: #1f2330;
-      --radius: 16px; --shadow: 0 10px 30px rgba(0,0,0,.35); --maxw: 1050px;
-      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-    }
+    :root{ --bg:#0b0c10; --panel:#121318; --text:#e6e6e6; --muted:#b7b7b7; --accent:#6ee7b7; --accent2:#60a5fa; --border:#1f2330; --radius:16px; --shadow:0 10px 30px rgba(0,0,0,.35); --maxw:1050px; --mono:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; --sans:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
     @media (prefers-color-scheme: light){ :root{ --bg:#f7f7fa; --panel:#ffffff; --text:#1f2937; --muted:#6b7280; --border:#e5e7eb; --shadow:0 10px 30px rgba(0,0,0,.08);} }
     *{ box-sizing:border-box; }
     html,body{ margin:0; padding:0; background:var(--bg); color:var(--text); font-family:var(--sans); line-height:1.65; }
@@ -203,9 +324,20 @@
     .btn{ display:inline-flex; align-items:center; gap:6px; padding:8px 12px; background:var(--panel); border:1px solid var(--border); border-radius:12px; color:var(--text); text-decoration:none; font-size:.95rem; box-shadow:var(--shadow); }
     .btn:hover{ transform:translateY(-1px); }
     .grid{ display:grid; grid-template-columns:1fr 1fr; gap:20px; }
-    @media (max-width: 880px){ .hero{ grid-template-columns:1fr } .grid{ grid-template-columns:1fr } }
+    @media (max-width:880px){ .hero{ grid-template-columns:1fr } .grid{ grid-template-columns:1fr } }
     .gallery{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
     .gallery img{ width:100%; height:100%; object-fit:cover; border-radius:12px; border:1px solid var(--border); box-shadow:var(--shadow); }
+    .note{ padding:12px 14px; border:1px dashed var(--border); border-radius:12px; color:var(--muted); background:color-mix(in oklab, var(--panel) 94%, black); }
+    /* --- Table styling for analysis --- */
+    .table{ width:100%; border-collapse:separate; border-spacing:0; overflow:hidden; border:1px solid var(--border); border-radius:12px; }
+    .table th, .table td{ padding:10px 12px; border-bottom:1px solid var(--border); }
+    .table thead th{ text-align:left; background:color-mix(in oklab, var(--panel) 92%, black); font-weight:600; }
+    .table tr:last-child td{ border-bottom:none; }
+    .badge{ display:inline-block; padding:2px 8px; border-radius:999px; border:1px solid var(--border); font-size:.85rem; }
+    .up{ background:rgba(34,197,94,.15); } .down{ background:rgba(239,68,68,.15); } .flat{ background:rgba(107,114,128,.15); }
+    .delta{ font-variant-numeric:tabular-nums; opacity:.9; }
+    figure{ margin:0; }
+    figcaption{ color:var(--muted); font-size:.9rem; margin-top:6px; }
     footer{ max-width:var(--maxw); margin:0 auto; padding:20px 16px 40px; color:var(--muted); border-top:1px dashed var(--border); }
   </style>
 </head>
@@ -213,7 +345,7 @@
   <a id="top"></a>
   <header>
     <div class="nav">
-      <div class="brand">Your Name<span class="dot">·</span>Data Portfolio</div>
+      <div class="brand">Krystal Wang<span class="dot">·</span>Data Portfolio</div>
       <nav>
         <a class="btn" href="#dashboard">View Interactive Report</a>
       </nav>
@@ -222,22 +354,20 @@
 
   <div class="hero">
     <div class="head">
-      <h1>Data Analytics Portfolio (Power BI)</h1>
-      <h3>Business Insights · Secure-Embedded Dashboard · End-to-End Workflow</h3>
-      <p style="color:var(--muted)">This page includes: project background, approach, data cleaning & methods, key findings, takeaways — plus a <strong>secure-embedded Power BI</strong> report (sign‑in required) and static screenshots.</p>
+      <h1>Maven Market — Interactive Performance Report (Power BI)</h1>
+      <h3>Business Insights · Secure‑Embedded Dashboard · End‑to‑End Workflow</h3>
+      <p style="color:var(--muted)">This page includes the project background, <strong>metrics & definitions</strong>, approach, data cleaning & methods, the <strong>insight framework</strong>, and key findings — plus a <strong>secure‑embedded Power BI</strong> report (sign‑in required) and static screenshots.</p>
       <div class="kpis">
         <span class="chip">Power BI</span>
         <span class="chip">DAX</span>
         <span class="chip">Data Modeling</span>
-        <span class="chip">Finance/Retail Analytics</span>
+        <span class="chip">Retail Finance</span>
       </div>
     </div>
     <div class="card">
       <h2 id="dashboard">Interactive Report (Sign‑in Required)</h2>
       <p class="muted" style="color:var(--muted)">Viewers must sign in with a Microsoft work/school account that has permissions to this report. If your tenant blocks external embedding, use the screenshots below.</p>
       <div class="embed-wrap">
-        <!-- Secure Embed: Power BI Service → File → Embed report → Website or portal. Paste the iframe below. -->
-        <!-- Example: <iframe title="Report" src="https://app.powerbi.com/reportEmbed?reportId=...&autoAuth=true&ctid=...&config=..." allowfullscreen></iframe> -->
         <iframe title="Power BI Report" src="https://app.powerbi.com/reportEmbed?reportId=e4f9f6cd-6cb6-458f-8d19-b08c4fe84f89&autoAuth=true&ctid=60409c15-dd37-4640-975b-9eaa707437b7" allowfullscreen></iframe>
       </div>
       <div class="embed-actions">
@@ -252,81 +382,203 @@
       <h2>Selected Screens (Static)</h2>
       <p style="color:var(--muted)">These images mirror the live dashboard for quick review and for viewers without access.</p>
       <div class="gallery">
-        <!-- Replace with your own images placed in /assets -->
-        <img src="assets/overview.png" alt="Topline performance overview: revenue vs target, margins, YoY/ MoM" />
-        <img src="assets/deepdive.png" alt="Division/Category drilldowns and store/region contribution" />
+        <img src="assets/overview.png" alt="Maven Market topline: revenue vs 5% target lift, profit/margin, YoY & MoM deltas" />
+        <img src="assets/deepdive.png" alt="Division/category and store/region drilldowns; returns and net sales context" />
       </div>
     </section>
 
-    <section id="background" class="card">
-      <h2>Project Background</h2>
+    <section id="metrics" class="card">
+      <h2>Metrics & Definitions</h2>
+      <h3>1) Revenue</h3>
       <ul>
-        <li><strong>Business context:</strong> (e.g.) Multi‑store retail performance tracking (1997–1998), focusing on targets vs actuals and cost structure.</li>
-        <li><strong>Data source:</strong> Transactions, returns, products, stores/regions, customers, and a date table.</li>
-        <li><strong>Audience:</strong> Business leaders · FP&A · Operations.</li>
-        <li><strong>Core questions:</strong> Revenue vs target, gross margin %, operating expenses, contribution by division/category/store, returns & net sales.</li>
+        <li><strong>Revenue:</strong> <em>Total Revenue</em> (Power BI measure).</li>
+        <li><strong>Returns:</strong> <em>Return Amount</em> (Power BI measure).</li>
+        <li><strong>Net Sales:</strong> Power BI <em>Net Sales</em> measure.</li>
+      </ul>
+      <h3>2) Cost</h3>
+      <ul>
+        <li><strong>COGS:</strong> <em>Total Cost</em> (Power BI measure).</li>
+        <li><strong>Gross Profit</strong> & <strong>Gross Margin %</strong> (Power BI measures).</li>
+      </ul>
+      <div class="note">⚠️ <strong>Important:</strong> Gross Profit is computed from the sales side only; <em>return cost is not deducted</em> because the <code>Return_Data</code> table lacks a reliable return‑cost field. This avoids fabricating losses and keeps margin truthful.</div>
+      <h3>3) Operating Expenses (OpEx)</h3>
+      <ul>
+        <li>Current dataset has no explicit Admin/MoH/Marketing breakdown. Leave blank or supplement with a hypothetical budget/expense table if needed.</li>
+      </ul>
+      <h3>4) Profit</h3>
+      <ul>
+        <li><strong>EBIT (Operating Profit):</strong> currently approximated as <em>EBIT = Gross Profit</em>.</li>
+        <li>Future expansion: <em>EBIT = Gross Profit − OpEx</em> once Admin/MoH/Marketing tables are added.</li>
+      </ul>
+    </section>
+
+    <section id="insight-framework" class="card">
+      <h2>Insight Framework & Storyline</h2>
+      <ol>
+        <li><strong>Topline Performance</strong>
+          <ul>
+            <li>Revenue vs Target (Gauge/Line)</li>
+            <li>Net Sales vs Budget</li>
+            <li>Returns % of Revenue</li>
+          </ul>
+        </li>
+        <li><strong>Cost & Margin</strong>
+          <ul>
+            <li>COGS vs Budget</li>
+            <li>Gross Profit & Gross Margin %</li>
+          </ul>
+        </li>
+        <li><strong>Expenses & EBIT</strong> (future OpEx data)
+          <ul>
+            <li>Expense category comparison</li>
+            <li>EBIT vs Budget</li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+
+    <section id="analytics-table" class="card">
+      <h2>Analytical Summary Table</h2>
+      <p style="color:var(--muted)">Latest month: <strong>Dec‑1998</strong>. <em>vs Budget</em> uses <strong>Prior Month actual</strong> (Nov‑1998). <span style="white-space:nowrap">Alt target:</span> PM×1.05 → Revenue <strong>+0.57%</strong>, Net Sales <strong>+0.64%</strong>.</p>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>Value</th>
+            <th>vs Budget</th>
+            <th>vs Prior Year</th>
+            <th>Note</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Total Revenue</td>
+            <td>$120.16k</td>
+            <td><span class="badge up">▲ <span class="delta">+5.60%</span></span></td>
+            <td><span class="badge up">▲ <span class="delta">+110.94%</span></span></td>
+            <td>Momentum led by top brands (Hermanos/Tell Tale)</td>
+          </tr>
+          <tr>
+            <td>Net Sales</td>
+            <td>$118.98k</td>
+            <td><span class="badge up">▲ <span class="delta">+5.67%</span></span></td>
+            <td><span class="badge up">▲ <span class="delta">+110.83%</span></span></td>
+            <td>Returns ratio stable / improving</td>
+          </tr>
+          <tr>
+            <td>Returns % of Revenue</td>
+            <td>0.99%</td>
+            <td><span class="badge up">• <span class="delta">−0.07 pp</span></span></td>
+            <td><span class="badge down">▼ <span class="delta">+0.05 pp</span></span></td>
+            <td>Watch high‑return SKUs</td>
+          </tr>
+          <tr>
+            <td>COGS</td>
+            <td>$48.48k</td>
+            <td><span class="badge down">▼ <span class="delta">+5.58%</span></span></td>
+            <td><span class="badge down">▼ <span class="delta">+111.08%</span></span></td>
+            <td>Mix & discount effects</td>
+          </tr>
+          <tr>
+            <td>Gross Margin %</td>
+            <td>59.66%</td>
+            <td><span class="badge flat">• <span class="delta">+0.01 pp</span></span></td>
+            <td><span class="badge flat">• <span class="delta">−0.03 pp</span></span></td>
+            <td>Stable overall; pressure in discount‑heavy SKUs</td>
+          </tr>
+          <tr>
+            <td>EBIT</td>
+            <td>$71.68k</td>
+            <td><span class="badge up">▲ <span class="delta">+5.61%</span></span></td>
+            <td><span class="badge up">▲ <span class="delta">+110.84%</span></span></td>
+            <td>Currently = Gross Profit (no OpEx yet)</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="visual-evidence" class="card">
+      <h2>Visual Evidence</h2>
+      <div class="grid">
+        <figure>
+          <img src="assets/kpi_table.png" alt="KPI table: revenue, net sales, returns %, COGS, GM%, EBIT with budget & prior year deltas" />
+          <figcaption>Exported KPI table from Power BI (Matrix or Table visual).</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/segment_split.png" alt="Contribution waterfall by division/category or store/region highlighting top contributors" />
+          <figcaption>Contribution breakdown (division/category/store/region).</figcaption>
+        </figure>
+      </div>
+      <p style="color:var(--muted);margin-top:10px">Place exported images in <code>/assets/</code> and update filenames above. Keep sensitive data off screenshots if sharing publicly.</p>
+    </section>
+
+    <section id="key-findings" class="card">
+      <h2>Key Findings (paired with the report)</h2>
+      <ul>
+        <li><strong>Revenue vs Budget:</strong> Outperformed budget and prior year; momentum led by top brands (Hermanos/Tell Tale).</li>
+        <li><strong>Margins & Costs:</strong> COGS up YoY yet margin steady (~59.7%); focus on discount‑heavy SKUs.</li>
+        <li><strong>OpEx readiness:</strong> When Admin/MoH/Marketing data becomes available, run 5–10% OpEx scenarios to protect EBIT.</li>
+        <li><strong>Regional/Store dispersion:</strong> Top stores contribute a disproportionate share of net sales; prioritize high‑ROI locations.</li>
+      </ul>
+    </section>
+
+    <section id="takeaways" class="card">
+      <h2>Takeaways / Recommendations</h2>
+      <ul>
+        <li>Run cost‑cut scenarios (5–10%) prioritizing Admin/MoH when OpEx data is added; monitor EBIT recovery path.</li>
+        <li>Double down on high‑margin categories and top‑performing regions/stores; trim low‑ROI marketing.</li>
+        <li>Build a returns quality dashboard to target high‑return SKUs and training opportunities.</li>
       </ul>
     </section>
 
     <section id="approach" class="card">
       <h2>Approach</h2>
       <ul>
-        <li>KPIs defined: <em>Total Revenue, Net Sales, Gross Margin %, EBIT%</em>, rolling revenue, returns ratio.</li>
-        <li>Star schema: Calendar/Products/Stores/Regions/Customers dimensions related to Transaction/Return facts.</li>
-        <li>DAX metrics: rolling windows (<code>DATESINPERIOD</code>), period‑over‑period (<code>DATEADD</code>), target vs actual (e.g., <em>Revenue Target = prior month × 1.05</em>).</li>
-        <li>Visual flow: topline overview → drilldowns to division/category/store → regional and SKU contribution.</li>
+        <li><strong>KPIs:</strong> <em>Total Revenue</em>, <em>Net Sales</em>, <em>Gross Margin %</em>, <em>EBIT %</em>, <em>Returns Ratio</em>, <em>Rolling 60‑day Revenue</em>.</li>
+        <li><strong>Modeling:</strong> Star schema with Calendar/Products/Stores/Regions/Customers dimensions related to Transaction and Return facts.</li>
+        <li><strong>Targets:</strong> <em>Revenue Target = Prior Month Revenue × 1.05</em> for gauge comparison and monthly pacing.</li>
+        <li><strong>Time intelligence:</strong> <code>DATESINPERIOD</code>, <code>DATEADD</code> for rolling windows and PoP analytics.</li>
+        <li><strong>UX:</strong> Topline overview → drilldowns (division/category/store) → region lens → returns overlay and net‑sales quality.</li>
       </ul>
     </section>
 
     <section id="methods" class="card">
       <h2>Data Cleaning & Methods</h2>
       <ul>
-        <li>Data quality Checks: null order IDs, negative invoice values split as Sales Credit, zero cost/qty sanity checks.</li>
-        <li>Indirect costs: consistent allocation (Admin/MoH/Distribution) for cross‑department comparison.</li>
-        <li>Time intelligence: rolling 60‑day revenue, last‑month comparisons, YoY/MoM deltas.</li>
-        <li>Targeting: gauge vs target to monitor trajectory and alert on underperformance.</li>
+        <li><strong>Data quality checks:</strong> null order numbers; negative invoice values handled as credits; zero cost/quantity sanity checks.</li>
+        <li><strong>Join logic:</strong> Calendar drives filters; Returns modeled separately (no FK to transactions). Reconciled via measures such as <em>All Returns</em>/<em>All Transactions</em>.</li>
+        <li><strong>Measures:</strong> rolling revenue (60‑day), last‑month revenue/returns/transactions, weekend share, profit margin, net sales.</li>
+        <li><strong>Formatting:</strong> M/d/yyyy date format; currency formatting for financial KPIs.</li>
       </ul>
     </section>
 
-    <section id="findings" class="card">
-      <h2>Key Findings (paired with the report)</h2>
-      <ul>
-        <li><strong>Revenue vs Budget:</strong> Outperformed budget and prior year; momentum led by Healthcare and Distributor channels.</li>
-        <li><strong>Margins & Costs:</strong> COGS up YoY yet margin steady (~64%); focus on discount‑heavy SKUs.</li>
-        <li><strong>OpEx pressure:</strong> Admin/MoH overruns drive weaker EBIT; scenario‑plan 5–10% OpEx reductions.</li>
-        <li><strong>Regional/Store dispersion:</strong> NE shows the largest improvement; top stores drive disproportionate net sales.</li>
-      </ul>
-    </section>
-
-    <section id="learnings" class="card">
-      <h2>Takeaways / Recommendations</h2>
-      <ul>
-        <li>Run cost‑cut scenarios (5–10%) prioritizing Admin/MoH; monitor EBIT recovery path.</li>
-        <li>Double down on high‑margin categories and top‑performing regions/stores; trim low‑ROI marketing.</li>
-        <li>Build a returns quality dashboard to target high‑return SKUs and training opportunities.</li>
-      </ul>
+    <section id="data-source" class="card">
+      <h2>Data Source & Reference</h2>
+      <p>
+        Dataset: <strong>Maven Market</strong> — sourced from Kaggle. Portfolio/educational use.
+        <a href="https://www.kaggle.com/datasets/ukveteran/maven-market-datasets" target="_blank" rel="noopener">View dataset on Kaggle ↗</a>
+      </p>
     </section>
 
     <section class="grid">
       <div class="card">
         <h2>Project Files</h2>
         <ul>
-          <li><a href="#" title="Optional: add the .pbix file">Download Power BI (.pbix)</a></li>
-          <li><a href="#" title="Optional: add a PDF/PPT">Download slides</a></li>
-          <li><a href="#" title="Optional: add a sanitized sample dataset">Sample dataset (sanitized)</a></li>
+          <li><a href="files/MavenMarket_Report.pbix" title="Power BI report download">Download Power BI (.pbix)</a></li>
+          <li><a href="files/MavenMarket_Dataset.zip" title="Sanitized dataset download">Download dataset (sanitized)</a></li>
         </ul>
       </div>
       <div class="card">
         <h2>About</h2>
-        <p>One‑liner: Data/Financial analyst with hands‑on Power BI, DAX, SQL, and business storytelling.</p>
-        <p>Contact: <a href="mailto:your@email">your@email</a></p>
-        <p>GitHub: <a href="https://github.com/yourname">@yourname</a></p>
+        <p>Data/Financial analyst focusing on Power BI, DAX, SQL, and business storytelling.</p>
+        <p>Contact: <a href="mailto:wst.krystal@outlook.com">wst.krystal@outlook.com</a></p>
+        <p>GitHub: <a href="https://github.com/KrystalWang222">@KrystalWang222</a></p>
       </div>
     </section>
   </main>
 
   <footer>
-    <p>© <span id="year"></span> Your Name · Data Analytics Portfolio · <a href="#top">Back to top</a></p>
+    <p>© <span id="year"></span> Krystal Wang · Data Analytics Portfolio · <a href="#top">Back to top</a></p>
   </footer>
 
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
